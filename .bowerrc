@@ -1,0 +1,10 @@
+{
+	"directory": "public/plugins/",
+	"interactive": true,
+	"color": true,
+	"save": true,
+	"ignoredDependencies": [
+		"jquery",
+		"bootstrap"
+	]
+}

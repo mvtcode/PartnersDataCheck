@@ -1,0 +1,14 @@
+%a{
+	text-decoration: none;
+}
+a {
+	&:hover {
+		@extend %a;
+	}
+	&:active {
+		@extend %a;
+	}
+	&:link {
+		@extend %a;
+	}
+}

@@ -1,0 +1,33 @@
+{
+  "name": "PartnersDataCheck",
+  "description": "Partners Data Check",
+  "main": "app.js",
+  "authors": [
+    "tanmv"
+  ],
+  "license": "ISC",
+  "homepage": "http://localhost:3000",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "qunit": "^2.0.1"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1",
+    "jquery.cookie": "^1.4.1",
+    "bootbox.js": "^4.4.0",
+    "bootstrap-datepicker": "^1.6.4",
+    "moment": "^2.18.1",
+    "nanoscroller": "^0.8.7",
+    "components-font-awesome": "^4.7.0",
+    "Ionicons": "ionicons#^2.0.1",
+    "jquery-slimscroll": "^1.3.8",
+    "bootstrap-toggle": "^2.2.2"
+  }
+}
