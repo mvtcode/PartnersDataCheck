@@ -3,10 +3,20 @@
 /**
  * Module dependencies.
  */
-
+const colors = require('colors');
 var app = require('../app');
 var debug = require('debug')('partnersdatacheck:server');
 var http = require('http');
+var mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/tms');
+mongoose.Promise = global.Promise;
+mongoose.connection.on('error', () => {
+  console.log(colors.cyan('MongoDB: ') + colors.red('error'));
+});
+mongoose.connection.on('connected', () => {
+	console.log(colors.cyan('MongoDB: ')+ colors.green('connected'));
+});
 
 /**
  * Get port from environment and store in Express.
