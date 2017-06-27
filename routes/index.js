@@ -16,7 +16,7 @@ let selectLastList = (cb) => {
 
 router.get('/', function(req, res, next) {
   selectLastList((err, list)=>{
-    res.render('index', { title: 'Partners Data Check', list: list });
+    res.render('index', { title: 'Partners Data Check', list: list || [] });
   });
 });
 
@@ -39,6 +39,16 @@ router.post('/', function(req, res, next) {
         });
       });
     }
+  });
+});
+
+router.post('/search', function(req, res, next) {
+  let key = req.body.key.replace(/\</g,'&lt;').replace(/\>/g,'&gt;');
+  res.json({
+    key: key,
+    error: 0,
+    message: 'done',
+    list: []
   });
 });
 

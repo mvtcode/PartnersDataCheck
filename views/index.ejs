@@ -20,10 +20,10 @@
     <script src="/js/script.min.js"></script>
     <script>
       $(function(){
-        $('#list-item').slimScroll({
-            height: '336px'
-        });
         var list_item = $('#list-item');
+        list_item.slimScroll({
+          height: '336px'
+        });
         var text = $('#text');
 
         $('#btn').click(function(){
@@ -57,6 +57,38 @@
             });
           }
         });
+
+        $('#btnSearch').click(function(){
+          var txt = text.val();
+          if(txt==''){
+            Alert('Must input data','Error',function(){
+              text.focus();
+            });
+          }
+          else{
+            $.ajax({
+              url: '/search',
+              type: 'POST',
+              dataType: 'json',
+              data:{key: txt},
+              success:function(data){
+                if(data.error==0){
+                  // var html = '';
+                  // if(data.list && data.list.length>0){
+                  //   for(var i=0, item; item=data.list[i];i++){
+                  //     html+='<li class="list-group-item">'+ item.comment +'</li>';
+                  //   }
+                  // }
+                  // list_item.html(html);
+                  // text.val('').focus();
+                }
+                else{
+                  Alert(data.message);
+                }
+              }
+            });
+          }
+        });
       });
     </script>
   </head>
@@ -73,6 +105,7 @@
           </div>
           <div class="col-sm-2">
             <button type="button" id="btn" class="btn btn-default">Submit</button>
+            <button type="button" id="btnSearch" class="btn btn-default">Search</button>
           </div>
         </div>
         <div class="form-group">
